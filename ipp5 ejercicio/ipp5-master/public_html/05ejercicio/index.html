@@ -1,0 +1,171 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="../css/main.css">
+
+        <script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+
+
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!--- Menu Bar -->      
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../index.html">ipp5</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="https://p5js.org/reference/">Referencia</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+        <!--- End of Menu Bar -->        
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Reto</h1>
+                <p>Este tutorial presenta un reto interesante al estudiante.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9" role="main">
+                                  
+                    <h1>Reto</h1>
+                    
+                    <p>En este ejercicio debes simular una mesa de billar con dos bolas, en caso de que las bolas choquen estas
+                        deben rebotar de una manera que parezca realista.</p>
+                    
+                    <p>Intente realizar lo siguiente en el programa a continuación:</p>
+                    <ul>
+                        <li>Explique qué hace el ejemplo. </li>
+                        <li>intente simular la colisión de las bolas.</li>
+                        <li>cambie el programa para que las bolas partan de una posición cercana al mouse cuando se 
+                            oprima el botón del mismo.</li>
+                                
+                    </ul>
+                    
+                    <p><strong>Recuerda:</strong> siempre puedes restaurar el programa original oprimiendo el botón <strong>Restaurar</strong>. </p>
+
+                    <div id="IDE">
+                        <iframe id="exampleFrame" src="../assets/embeded.html" width="600" height="400"></iframe>
+                        <div id="myContainer"></div>
+                        <hr/>
+                        <button class="btn btn-default" type="submit" onclick="ejecutar(editor, '#exampleFrame')">Ejecutar</button>
+                        <button class="btn btn-default" type="submit" onclick="restaurar('sketch.js', editor)">Restaurar</button>
+                        <br/><br/>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Código de ejemplo</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="editor" class="editor-grande"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" role="navigation">
+                    <nav class="hidden-print hidden-sm hidden-xs" data-spy="affix" data-offset-top="300"> 
+                        <ul class="nav nav-pills nav-stacked" > 
+                            <li><a href="../01primerospasos/index.html">Primeros pasos</a></li>
+                            <li><a href="../02variables/index.html">Variables</a></li>
+                            <li><a href="../03condicionales/index.html">Condicionales</a></li>
+                            <li><a href="../04eventos/index.html">Eventos</a></li>
+                            <li><a href="../05ejercicio/index.html">Reto</a></li> 
+                            <li><a href="../08MLposes/index.html">Machine Learning</a></li>
+                            <li><a href="../09BouncingBall/index.html">Modelado básico 3D</a></li>
+                            <li><a href="../10Pong/index.html">Pong solitario</a></li>
+                        </ul>
+                        <hr/>
+                        <ul class="nav nav-pills nav-stacked" >
+                            <li><a href="#top" class=""> Subir al principio </a></li>
+                        </ul>
+
+
+                    </nav>
+                </div>
+            </div>
+
+
+            <hr>
+
+            <footer>
+                <p>&copy; ipp5 2017</p>
+            </footer>
+        </div> <!-- /container --> 
+
+
+        <!-- Scripts -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="../js/vendor/bootstrap.min.js"></script>
+
+        <script src="../js/main.js"></script>
+
+        <script src="../js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+                            var editor = ace.edit("editor");
+                            editor.setTheme("ace/theme/github");
+                            editor.getSession().setMode("ace/mode/javascript");
+                            iniciarCanvas(editor, "#exampleFrame")
+                            restaurar("sketch.js", editor);
+        </script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function (b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l;
+                b[l] || (b[l] =
+                        function () {
+                            (b[l].q = b[l].q || []).push(arguments)
+                        });
+                b[l].l = +new Date;
+                e = o.createElement(i);
+                r = o.getElementsByTagName(i)[0];
+                e.src = '//www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+            ga('create', 'UA-XXXXX-X', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>

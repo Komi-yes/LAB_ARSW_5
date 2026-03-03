@@ -1,0 +1,29 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.editor-pequeno {
+        min-height: 200px;
+        width: auto
+    }
+
+.editor-mediano {
+        min-height: 300px;
+        width: auto
+    }
+
+.editor-grande {
+        min-height: 500px;
+        width: auto
+    }
+
+.affix {
+      top: 60px;
+  }
+
+.jumbotron{
+    background-color: #007399;
+    color: whitesmoke;
+}
