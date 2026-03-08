@@ -28,6 +28,22 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--
+            Swagger / OpenAPI — springdoc-openapi-starter-webmvc-ui
+            ─────────────────────────────────────────────────────────
+            Esta dependencia hace DOS cosas automáticamente:
+              1. Escanea todos tus @RestController y genera un JSON
+                 con la especificación OpenAPI en: /v3/api-docs
+              2. Sirve la interfaz visual Swagger UI en: /swagger-ui.html
+            No necesitas ninguna configuración extra para que funcione.
+            Usamos la versión 2.x porque es compatible con Spring Boot 3.
+        -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
         <!-- Test support -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

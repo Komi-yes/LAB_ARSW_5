@@ -1,8 +1,0 @@
-{
-    "name": "ipp5",
-    "version": "1.0.0",
-    "keywords": ["util", "functional", "server", "client", "browser"],
-    "author": "daniel",
-    "contributors": [],
-    "dependencies": {}
-}

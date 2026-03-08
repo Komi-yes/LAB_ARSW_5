@@ -1,3 +1,4 @@
 com\lab5\board\BoardApplication.class
 com\lab5\board\model\Stroke.class
+com\lab5\board\config\SwaggerConfig.class
 com\lab5\board\controller\BoardController.class

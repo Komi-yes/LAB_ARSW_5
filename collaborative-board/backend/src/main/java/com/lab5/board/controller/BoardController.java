@@ -1,6 +1,10 @@
 package com.lab5.board.controller;
 
 import com.lab5.board.model.Stroke;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -10,8 +14,6 @@ import java.util.List;
 /**
  * STEP 2 — The REST Controller (the "brain" of the backend)
  *
- * This is where HTTP requests from the React frontend are handled.
- *
  * Endpoints:
  *  GET  /api/strokes        → Returns ALL strokes stored in memory
  *  POST /api/strokes        → Receives a new stroke from a user and stores it
@@ -19,32 +21,40 @@ import java.util.List;
  *
  * @RestController = tells Spring this class handles HTTP requests and returns JSON
  * @RequestMapping = base path for all endpoints in this class
- * @CrossOrigin    = ENABLES CORS (Cross-Origin Resource Sharing)
- *                   Without this, the browser would BLOCK requests from
- *                   React (localhost:3000) to Spring (localhost:8080).
- *                   The lab's guide references: https://spring.io/guides/gs/rest-service-cors
+ * @CrossOrigin    = ENABLES CORS so React (port 3000) can call Spring (port 8080)
+ *
+ * SWAGGER ANNOTATIONS:
+ * @Tag             → groups all endpoints of this controller under one section in Swagger UI
+ * @Operation       → describes what each endpoint does (shows in Swagger UI)
+ * @ApiResponses    → documents the possible HTTP response codes for each endpoint
  */
+@Tag(
+        name = "Board Controller",
+        description = "Endpoints para gestionar los trazos del tablero colaborativo de dibujo"
+)
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")  // Allow requests from any origin (React dev server)
+@CrossOrigin(origins = "*")
 public class BoardController {
 
     /**
      * In-memory store for all strokes.
-     *
-     * In a real production app this would be a database (PostgreSQL, MongoDB, etc.)
-     * For this lab, we keep it simple: a thread-safe list in memory.
-     * synchronizedList() makes it safe when multiple users send requests at the same time.
+     * synchronizedList() makes it thread-safe when multiple users draw at the same time.
      */
     private final List<Stroke> strokes = Collections.synchronizedList(new ArrayList<>());
 
     /**
      * GET /api/strokes
-     *
-     * Called by every React client every 500ms (polling).
-     * Returns the full list of strokes as JSON.
-     * React uses this to redraw the canvas with everyone's drawings.
      */
+    @Operation(
+            summary = "Obtener todos los trazos",
+            description = "Retorna la lista completa de trazos dibujados por todos los usuarios. " +
+                    "El frontend React llama este endpoint cada 500ms para mantener " +
+                    "el canvas sincronizado en tiempo real."
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Lista de trazos retornada exitosamente")
+    })
     @GetMapping("/strokes")
     public List<Stroke> getAllStrokes() {
         return strokes;
@@ -52,11 +62,16 @@ public class BoardController {
 
     /**
      * POST /api/strokes
-     *
-     * Called by React whenever a user draws a point on the canvas.
-     * @RequestBody tells Spring to parse the JSON body into a Stroke object.
-     * Returns the saved stroke as confirmation.
      */
+    @Operation(
+            summary = "Agregar un nuevo trazo",
+            description = "Recibe un punto de dibujo (x, y, color, userId) desde el cliente React " +
+                    "y lo almacena en memoria. Todos los demás usuarios verán este trazo " +
+                    "en su próximo ciclo de polling (cada 500ms)."
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Trazo guardado y retornado exitosamente")
+    })
     @PostMapping("/strokes")
     public Stroke addStroke(@RequestBody Stroke stroke) {
         strokes.add(stroke);
@@ -65,13 +80,16 @@ public class BoardController {
 
     /**
      * DELETE /api/strokes
-     *
-     * Called when ANY user clicks the "Clear Board" button.
-     * Wipes all strokes — this affects ALL connected users
-     * because they all poll the same list.
-     *
-     * Returns a simple message confirming the board was cleared.
      */
+    @Operation(
+            summary = "Borrar el tablero completo",
+            description = "Elimina TODOS los trazos almacenados. Como todos los clientes pollan " +
+                    "el mismo servidor, el tablero se borra para TODOS los usuarios " +
+                    "en su siguiente ciclo de polling (máximo 500ms)."
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Tablero borrado exitosamente")
+    })
     @DeleteMapping("/strokes")
     public String clearBoard() {
         strokes.clear();
