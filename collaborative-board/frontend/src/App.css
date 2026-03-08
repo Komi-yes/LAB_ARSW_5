@@ -1,0 +1,107 @@
+/* ── Reset & Base ──────────────────────────────────────────── */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1a1a2e;
+    color: #eee;
+    min-height: 100vh;
+}
+
+/* ── App Layout ─────────────────────────────────────────────── */
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 16px;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: #16213e;
+    padding: 14px 28px;
+    border-radius: 12px;
+    border: 1px solid #0f3460;
+    width: 100%;
+    max-width: 860px;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #e94560, #0f3460);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    flex: 1;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+.color-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid rgba(255,255,255,0.3);
+    flex-shrink: 0;
+}
+
+.user-label strong {
+    color: #e94560;
+}
+
+/* ── Clear Button ───────────────────────────────────────────── */
+.clear-btn {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.clear-btn:hover {
+    background: #c73652;
+}
+
+.clear-btn:active {
+    transform: scale(0.97);
+}
+
+/* ── Canvas Wrapper ─────────────────────────────────────────── */
+.canvas-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 2px solid #0f3460;
+    cursor: crosshair;
+}
+
+#container canvas {
+    display: block;
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.footer {
+    font-size: 0.8rem;
+    color: #555;
+    text-align: center;
+}
