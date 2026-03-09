@@ -36,7 +36,7 @@ Clicking "Clear Board" sends DELETE to the backend — wiping all strokes for ev
 ### 1. Start the Backend (Spring Boot)
 
 ```bash
-cd backend
+cd collaborative-board\backend
 mvn spring-boot:run
 ```
 
@@ -50,7 +50,7 @@ You can verify it works by opening: http://localhost:8080/api/strokes
 ### 2. Start the Frontend (React)
 
 ```bash
-cd frontend
+cd collaborative-board\frontend
 npm install      # installs React, p5.js, etc.
 npm start        # starts dev server at http://localhost:3000
 ```
