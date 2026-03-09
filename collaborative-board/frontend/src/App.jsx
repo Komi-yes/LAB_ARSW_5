@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import p5 from 'p5';
 import './App.css';
 
-const API_URL = 'http://localhost:8080/api';
+const API_URL = 'https://lab-arsw-5.onrender.com/api';//'http://localhost:8080/api';
 
 const USER_COLORS = [
   '#E63946', // red
