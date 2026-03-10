@@ -101,8 +101,8 @@ Open **http://localhost:3000** in two or more browser tabs to draw together!
 4. Build the backend: `mvn package` → produces `target/board-0.0.1-SNAPSHOT.jar`
 5. Run the backend: `java -jar target/board-0.0.1-SNAPSHOT.jar`
 6. Build the frontend: `npm run build` → produces static files in `build/`
-7. Serve the frontend with nginx or `npx serve -s build`
-8. Update `API_URL` in `App.js` to point to your EC2 public IP:
+7. Serve the frontend with nginx or `npx serve -s dist -l 3000 &`
+8. Update `API_URL` in `App.jsx` to point to your EC2 public IP:
    ```js
    const API_URL = 'http://<your-ec2-ip>:8080/api';
    ```
